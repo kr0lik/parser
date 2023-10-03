@@ -1,0 +1,41 @@
+categories:
+  siteUrl: "https://www.wildberries.ru/"
+  url: https://static-basket-01.wb.ru/vol0/data/main-menu-ru-ru-v2.json
+  listMainCategories:
+    path: ""
+    attributes:
+      id: id
+      name: name
+      title: name
+      url: url
+      shard: shard
+      child: childs
+  loopChildCategories:
+    path: ""
+    attributes:
+      id: id
+      name: name
+      title: seo
+      url: url
+      shard: shard
+      child: childs
+  productsApi: https://catalog.wb.ru/catalog/<categoryShard>/catalog
+
+products:
+  sortParam: "sort=popular"
+  filterParam:
+    default: "appType=1&curr=rub&dest=-1257786&regions=80,38,83,4,64,33,68,70,30,40,86,75,69,1,31,66,110,48,22,71,114&cat=<categoryId>&page=<page>"
+    priceFromTo: "priceU=<from>;<to>"
+  list:
+    path: data.products
+    attributes:
+      id: id
+      name: name
+      brand: brand
+      price: salePriceU
+      rating: reviewRating
+      reviewCount: feedbacks
+      popularScore: __sort
+    url: https://www.wildberries.ru/catalog/<id>/detail.aspx
+    name: <brand> <name>
+  priceFactor: 100

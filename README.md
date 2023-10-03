@@ -1,6 +1,6 @@
 # WIP: parser
 
-chromedriver version 115
+chromedriver version 117
 
 ## Usage
 
@@ -35,11 +35,6 @@ $ docker-compose run --rm app ./bin/wildberries collectProducts
 ## Dev
 ### Local Chrome
 
-Build with self server
-```
-$ go build -ldflags="-X 'parser/internal/infrastructure/selenium.withService=y'"
-```
-
 Add to build `-X 'parser/internal/infrastructure/selenium.devMode=y'` for use chrome with graphic interface:
 ```
 $ go build -X 'parser/internal/infrastructure/selenium.devMode=y'"
@@ -50,10 +45,16 @@ Start selenium in docker
 ```
 $ docker-compose up selenium
 ```
+and add in .env 
+```
+SELENIUM_HOST=selenium
+```
 and run
 
 ###### Debug
 ```
-$ docker compose build ozon
+$ docker compose build app
 $ docker run -p 2345:2345 --network parser_default --env-file=.env parser-app dlv --listen=:2345 --headless=true --log=true --api-version=2 --accept-multiclient exec ./bin/ozon <cmd>
+or
+$ docker run -p 2345:2345 --network parser_default --env-file=.env parser-app dlv --listen=:2345 --headless=true --log=true --api-version=2 --accept-multiclient exec ./bin/wildberries <cmd>
 ```

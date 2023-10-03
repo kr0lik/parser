@@ -1,0 +1,9 @@
+category:
+  include: # Массив имен (без пути)
+  exclude: # Массив имен (без пути)
+
+product:
+  -
+    inCategory: # Если пусто, то для всех
+    priceMin: 0
+    priceMax: 3000

@@ -1,8 +1,10 @@
 FROM golang:alpine
 
 RUN apk --update --no-cache add  \
-    bash  git  curl wget ca-certificates unzip libexif xvfb udev \
-    chromium=115.0.5790.170-r0 chromium-chromedriver=115.0.5790.170-r0
+    bash  git  curl wget ca-certificates unzip libexif xvfb udev
+
+RUN apk --update --no-cache add \
+    chromium=117.0.5938.62-r0 chromium-chromedriver=117.0.5938.62-r0
 
 RUN go install github.com/go-delve/delve/cmd/dlv@latest
 

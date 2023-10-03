@@ -1,0 +1,81 @@
+region:
+  checkRegion:
+    wait:
+      element: "[data-addressbookbar] button span span"
+      timeout: 3
+    check:
+      element: "[data-addressbookbar] button span span"
+      isName: Москва
+
+  callChoosePopup:
+    click: "[data-addressbookbar] button"
+
+  callChooser:
+    wait:
+      element: "[data-widget=\"commonAddressBook\"] .yd7.y7d"
+      timeout: 3
+    click: "[data-widget=\"commonAddressBook\"] .yd7.y7d"
+
+  chooseRegion:
+    wait:
+      element: "[data-widget=\"citySelector\"] .a0b .yd7"
+      timeout: 3
+    list:
+      element: "[data-widget=\"citySelector\"] .a0b .yd7"
+      name: ".dz1.tsBodyL"
+
+categories:
+  startUrl: "https://www.ozon.ru/category/"
+  listMainCategories:
+    wait:
+      element: "[data-widget=\"container\"] [data-widget=\"row\"] [data-widget=\"column\"] [data-widget=\"objectLine\"] > div > div"
+      timeout: 10
+    list:
+      element: "[data-widget=\"container\"] [data-widget=\"row\"] [data-widget=\"column\"] [data-widget=\"objectLine\"] > div > div"
+      name: "a > div + div > div"
+      url: "a"
+
+  loopCategories:
+    wait:
+      element: "[data-widget=\"filtersDesktop\"] aside > div > div > div > div"
+      timeout: 10
+    list:
+      element: "[data-widget=\"filtersDesktop\"] aside > div > div > div > div > a"
+      name: ""
+      url: ""
+    title:
+      element: "[data-widget=\"resultsHeader\"] > div > h1"
+
+products:
+  sortParam: "sorting=score"
+  filterParam:
+    priceFromTo: "currency_price=<from>%3B<to>"
+    onlyBestSale: "isbest=t"
+  listProducts:
+    wait:
+      element: "[data-widget=\"searchResultsV2\"] > div > div"
+      timeout: 10
+    list:
+      element: "[data-widget=\"searchResultsV2\"] > div > div"
+      name:
+        - "div > div + div > div a.tile-hover-target > div > span"
+        - "div > a > div > span"
+      url:
+        - "a.tile-hover-target"
+      price:
+        - "div + div + div > div > div > span"
+        - "a + div > div > div > span"
+      rating:
+        - "div > div + div > div > a + div + div > div > span > span"
+        - "a.tile-hover-target + div > a.tile-hover-target + div > div > span > span"
+      reviewCount:
+        - "div > div + div > div > a + div + div > div > span + span > span"
+        - "a.tile-hover-target + div > a.tile-hover-target + div > div > span + span > span"
+  pagination:
+    wait:
+      element: "#paginatorContent + div > div > div > div a"
+      timeout: 10
+    list:
+      element: "#paginatorContent + div > div > div > div a"
+      name: ""
+      url: ""
